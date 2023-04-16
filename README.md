@@ -1,2 +1,3 @@
 # alura-codes
-Projetos desenvolvidos na Altura
+Projetos desenvolvidos na Alura
+
