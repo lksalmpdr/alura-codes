@@ -1,0 +1,37 @@
+<html>
+	<body>
+		<div class='erros'>
+			<%
+
+			if(errosValidacao)
+			{%>
+				<ul>
+					<%
+						for(var i=0; i< errosValidacao.lenght; i++){
+						%>
+						<li><%=errosValidacao[i].param%> - <%=errosValidacao[i].msg%></li>
+						<%
+					}
+					%>
+				</ul>
+			<%}
+
+			%>
+		</div>
+		<form action='/produtos' method='post'>
+			<div>
+				<label for='nome'>Nome</label>
+				<input type="text" name="nome" id='nome' value='<%=produto.nome%>' />
+			</div>
+			<div>
+				<label for='pais'>País</label>
+				<input type="text" name="pais" id='pais' value='<%=produto.pais%>' />
+			</div>
+			<div>
+				<label for='populacao'>População</label>
+				<input type="number" name="populacao" id='populacao' value='<%=produto.populacao%>' />
+			</div>
+			<input type="submit" value="Gravar">
+		</form>
+	</body>
+</html>

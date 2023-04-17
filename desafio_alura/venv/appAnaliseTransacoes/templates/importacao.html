@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div>
+    <h1>Status da Importação: {{ upload }} </h1>
+    {% if persistidos and nao_persistidos %}
+        {{persistidos}} linhas foram gravadas, {{nao_persistidos}} não foram gravadas.
+    {% endif %}
+</div>
+{% endblock %}

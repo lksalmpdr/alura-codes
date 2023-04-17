@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="content">
+    <div class="container">
+        <div class="header">
+            <h2 class="col-4 offset-2">Importar Transações</h2>
+        </div>
+        <form action="upload/" class="form" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="file" class="form-control-file" id="arquivos_csv" name="arquivos_csv">
+                <label for="arquivos-css">Selecione o arquivo para realizar o <i>upload</i></label>    
+            </div>
+            <button type="submit" class="btn btn-primary">Importar</button>
+        </form>
+        <button class="btn btn-primary" onclick="window.location.href='limpa/'">Limpar tabela de transacoes</button>
+    </div>
+</div>
+{% endblock %}

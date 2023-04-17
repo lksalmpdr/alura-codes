@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div>
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Usuários</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Lista de Usuários</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Nome</th>
+                                            <th>Email</th>
+                                            <th>Ações</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for usuario in usuarios %}
+                                        <tr>
+                                            <td>{{ usuario.nome }}</td>
+                                            <td>{{ usuario.email }}</td>
+                                            <td>
+                                                <a href="/atualizar" class="btn btn-primary btn-sm">Editar</a>
+                                                <a href="/apagar" class="btn btn-danger btn-sm">Excluir</a>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <h3>Cadastrar Usuário</h3>
+                            <form action="cadastrar/" class="form" method="post" enctype="application/x-www-form-urlencoded">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="nome" name="nome">
+                                    <label for="nome">Nome do usuário: </label>    
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="email" name="email">
+                                    <label for="email">Nome do usuário: </label>    
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" id="senha" name="senha">
+                                    <label for="senha">Nome do usuário: </label>    
+                                </div>
+                                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                            </form>
+                        </div>
+                        <div class="col-md-12">
+                            <h3>Atualizar Usuário</h3>
+                            <form action="atualizar/" class="form" method="post" enctype="application/x-www-form-urlencoded">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="nome" name="nome">
+                                    <label for="nome">Nome do usuário: </label>    
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="email" name="email">
+                                    <label for="email">Nome do usuário: </label>    
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" id="senha" name="senha">
+                                    <label for="senha">Nome do usuário: </label>    
+                                </div>
+                                <button type="submit" class="btn btn-primary">Atualizar</button>
+                            </form>
+                        </div>
+                        <div class="col-md-12">
+                            <h3>Excluir Usuário</h3>
+                            <form action="apagar/" class="form" enctype="application/x-www-form-urlencoded">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="email" name="email">
+                                    <label for="email">E-mail do usuário: </label>
+                                    <button type="submit" class="btn btn-primary">Apagar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% if apagado == 'ok' %}
+<div class="alert alert-success">
+    <strong>Sucesso!</strong> Usuário excluído com sucesso.
+</div>
+{% endif %}
+
+{% if cadastro == 'ok' %}
+<div class="alert alert-success">
+    <strong>Sucesso!</strong> Usuário cadastrado com sucesso.
+</div>
+{% endif %}
+
+{% if atualizado == 'ok' %}
+<div class="alert alert-success">
+    <strong>Sucesso!</strong> Usuário atualizado com sucesso.
+</div>
+{% endif %}
+
+{% endblock %}

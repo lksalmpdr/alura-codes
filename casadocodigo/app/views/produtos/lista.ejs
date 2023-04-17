@@ -1,0 +1,29 @@
+<html>
+	<body>
+		<table style="border: solid;">
+			<thead>
+				<tr>
+					<th>id</th>
+					<th>name</th>
+					<th>Country Code</th>
+					<th>District</th>
+					<th>Population</th>
+				</tr>
+			</thead>
+			<tbody>
+				<%for(var i = 0; i < lista.length; i ++){%>
+				<tr>
+					<td><%=lista[i].ID%></td>
+					<td><%=lista[i].Name%></td>
+					<td><%=lista[i].CountryCode%></td>
+					<td><%=lista[i].Distrinct%></td>
+					<td><%=lista[i].Population%></td>
+				</tr>
+				<%}%>
+			</tbody>
+		</table>
+		<div>
+			
+		</div>
+	</body>
+</html>

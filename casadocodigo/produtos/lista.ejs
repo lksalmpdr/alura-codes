@@ -1,0 +1,26 @@
+<html>
+	<body>
+		<table>
+			<thead>
+				<th>
+					<td>id</td>
+					<td>name</td>
+					<td>Country Code</td>
+					<td>District</td>
+					<td>Population</td>
+				</th>
+			</thead>
+			<tbody>
+			<%
+				foreach(cidade in lista){
+					res.send("<td>cidade.id</td>");
+					res.send("<td>cidade.Name</td>");
+					res.send("<td>cidade.CountryCode</td>");
+					res.send("<td>cidade.District</td>");
+					res.send("<td>cidade.Population</td>");
+				}
+			%>
+			</tbody>
+		</table>
+	</body>
+</html>
